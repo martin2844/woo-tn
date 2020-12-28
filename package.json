@@ -1,0 +1,28 @@
+{
+  "name": "node-tiendanube-starter",
+  "version": "1.0.0",
+  "description": "A quick starter to get a nodejs app running with tiendanube",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "node",
+    "tiendanube"
+  ],
+  "author": "Martin Chammah",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bree": "^4.0.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "dayjs": "^1.9.6",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mocha": "^8.2.1",
+    "mongoose": "^5.10.11",
+    "winston": "^3.3.3"
+  }
+}
