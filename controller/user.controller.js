@@ -18,9 +18,22 @@ const findUser = async (user_id) => {
     return await User.findOne({user_id: user_id}).exec();
 }
 
+//Update a users token.
+const updateUserToken = async (user, data) => {
+    //Destructure needed data to update.
+    let {access_token} = data;
+    user.access_token = access_token;
+    user.updated = true,
+    user.dateModified = Date.now();
+    user.save();
+    return await user;
+}
+
+
 
 
 module.exports = {
     findUser,
-    createUser
+    createUser,
+    updateUserToken
 }

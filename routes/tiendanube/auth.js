@@ -80,7 +80,9 @@ router.get("/", async (req, res) => {
             } else {
                 res.render("setup", { 
                     user_id: user_id,
-                    store_url: storeData.data.url_with_protocol
+                    store_url: storeData.data.url_with_protocol,
+                    api_client: "",
+                    pi_secret: "",
                 });
             }
         } else {

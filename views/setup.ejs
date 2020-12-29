@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/public/register.css" as="style"/>
+    <link rel="stylesheet" href="/public/register.css">
+    <link href="/public/spinner.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>Woocommerce - TiendaNube</title>
+</head>
+<body>
+
+    <section class="main">
+        <div class="top-section">
+            <!-- <img class="hero-img" src="/public/entregar.png" /> -->
+            <div>
+                <h4>Gracias por instalar Woo-Tn</h4>
+                <h4>Por favor ingresar los siguientes datos:</h4>
+            </div>
+        </div>
+   
+       
+        <form onsubmit="saveData(event)" id="register" method="POST" action="/api/tiendanube/setup">
+            <label>Api Client</label>
+            <input name="api_client" id="api_client" type="text" value="<%= api_client %>" placeholder="API Client"/>
+            <label>Api Secret</label>
+            <input name="api_secret" id="api_secret" type="text" value="<%= api_secret %>" placeholder="API Secret" />
+            <input name="user_id" type="hidden" id="user_id" value="<%= user_id %>" />
+            <div class="btn-container"><button id="submit-btn">Guardar</button><button type="button" onclick="test()" id="test-btn">Probar</button></div>
+           
+        </form>
+        <a class="back-link" href="<%= store_url %>/admin/apps/ ">Volver</a>
+    </section>
+    <div class="alert animate__animated" id="alert"></div>
+<script src="/public/setup.js"></script>
+<script src="/public/axios.min.js"></script>
+</body>
+</html>

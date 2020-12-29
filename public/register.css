@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    background-color: #ecf0f5;
+    font-family: 'Roboto', 'Helvetica', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section.main {
+    margin: 2rem 6rem;
+    background-color: white;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+form label {
+    font-weight: 400;
+    margin: 10px 0;
+    min-width: 480px;
+}
+
+form input {
+    height: 30px;
+    max-width: 480px;
+    
+}
+
+form button {
+    width: 80px;
+    margin-top: 20px;
+    background-color: #ff3b53;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    color: white;
+}
+
+.top-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.hero-img {
+    width: 150px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.btn-container {
+    display: flex;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+#submit-btn, #test-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+#alert, #test-btn {
+    display: none;
+}
+
+
+.alert {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    transition: height 1.3s linear, visibility 1.3s linear;
+    padding: 8px 15px;
+    color: white;
+}
+
+.alert.danger {
+    color: #F52F41;
+    background-color: #FEE0E3;
+}
+
+.alert.success {
+    background-color: #00E662;
+}

@@ -1,5 +1,15 @@
 # TiendaNube Starter
 
+## TODO
+Create Setup js route
+create setup js front-end js handling to save api keys
+Create internal API calls to handle products
+create FE for handling products
+
+
+2521
+https://tiendanube.com/apps/2521/authorize
+
 A nodejs tiendanube bare bones starter, to start creating a TiendaNube App using:  
 
 * Nodejs
