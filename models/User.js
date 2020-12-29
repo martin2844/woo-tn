@@ -18,6 +18,9 @@ const UserSchema = new mongoose.Schema({
     api_secret: {
         type: String,
     }, 
+    email: {
+        type: String,
+    },
     updated: {
         type: Boolean
     },
@@ -29,6 +32,9 @@ const UserSchema = new mongoose.Schema({
     },
     store_url: {
         type: String
+    },
+    woo_url: {
+        type: String   
     }
  
 })

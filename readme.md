@@ -1,7 +1,7 @@
 # TiendaNube Starter
 
 ## TODO
-Create Setup js route
+Create Setup js route - //Currently storing api_secret api_id user_id and woo url
 create setup js front-end js handling to save api keys
 Create internal API calls to handle products
 create FE for handling products

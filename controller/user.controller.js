@@ -29,11 +29,35 @@ const updateUserToken = async (user, data) => {
     return await user;
 }
 
+const updateUserData = async (data) => {
+    try {
+        if(!data.user_id){
+            throw "No user_id"
+        }
+        const user = await findUser(data.user_id);
+        const keys = Object.keys(data);
+        keys.forEach((key) => {
+            if(data[key]) {
+                console.log(key + ": " + data[key]);
+                user[key] = data[key];
+            }
+        })
+        let newUser = await user.save();
+        return newUser;
+    } catch (error) {
+        return false;
+    }
+
+
+
+}
+
 
 
 
 module.exports = {
     findUser,
     createUser,
-    updateUserToken
+    updateUserToken,
+    updateUserData
 }

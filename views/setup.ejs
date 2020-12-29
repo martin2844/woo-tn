@@ -22,16 +22,15 @@
                 <h4>Por favor ingresar los siguientes datos:</h4>
             </div>
         </div>
-   
-       
         <form onsubmit="saveData(event)" id="register" method="POST" action="/api/tiendanube/setup">
+            <label>Url de la tienda</label>
+            <input name="woo_url" id="woo_url" type="text" value="<%= woo_url %>" placeholder="Url del woocommerce"/>
             <label>Api Client</label>
             <input name="api_client" id="api_client" type="text" value="<%= api_client %>" placeholder="API Client"/>
             <label>Api Secret</label>
             <input name="api_secret" id="api_secret" type="text" value="<%= api_secret %>" placeholder="API Secret" />
             <input name="user_id" type="hidden" id="user_id" value="<%= user_id %>" />
             <div class="btn-container"><button id="submit-btn">Guardar</button><button type="button" onclick="test()" id="test-btn">Probar</button></div>
-           
         </form>
         <a class="back-link" href="<%= store_url %>/admin/apps/ ">Volver</a>
     </section>
