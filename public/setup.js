@@ -45,8 +45,10 @@ const test = async () => {
     //MUST CHECK IF IT ENDS with / or not 
     try {
         let test = await axios.get(`${woo_url}/wp-json/wc/v3/products?consumer_key=${api_client}&consumer_secret=${api_secret}`);
+        console.log(test);
         if(test.data){
             createAlert("Prueba exitosa, ya podemos comenzar con la migración", "success");
+            document.getElementById("start").style.display = "block";
         } else {
             createAlert("Hubo un error, por favor contactate con nosotros");
         }

@@ -79,10 +79,18 @@ form button {
     margin-right: 20px;
 }
 
-#alert, #test-btn {
+#alert, #test-btn, #start {
     display: none;
 }
 
+#start {
+    margin-top: 20px;
+    background-color: #32be60;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    color: white;
+}
 
 .alert {
     border-radius: 5px;

@@ -13,10 +13,8 @@ BACKEND
 Create internal API calls to handle products
 Create correct translations between products from Woo to TN.
 
-
-
-
-
+//Woocommerce docs
+https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products
 
 2521
 https://tiendanube.com/apps/2521/authorize
