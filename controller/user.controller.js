@@ -45,6 +45,7 @@ const updateUserData = async (data) => {
         let newUser = await user.save();
         return newUser;
     } catch (error) {
+        console.log(error);
         return false;
     }
 

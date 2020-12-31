@@ -71,7 +71,7 @@ const PORT = process.env.PORT || 5000;
 // 
 
 // if(process.env.NODE_ENV === "test") {
-if(true){
+if(false){
     app.listen(PORT, console.log(`server started on ${PORT}`));
 } else {
     // For https on localhost

@@ -4,8 +4,7 @@ const userController = require('../../controller/user.controller');
 
 router.post("/", async (req, res) => {
     console.log(req.body);
-    let {api_client, api_secret, woo_url, email} = req.body
-    let user_id = req.body.store_id;
+    let {api_client, api_secret, woo_url, email, user_id} = req.body
     let data = {
         api_client,
         api_secret,

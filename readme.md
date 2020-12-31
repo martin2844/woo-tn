@@ -1,10 +1,21 @@
 # TiendaNube Starter
 
 ## TODO
-Create Setup js route - //Currently storing api_secret api_id user_id and woo url
-create setup js front-end js handling to save api keys
+~~Create Setup js route~~ 
+~~create setup js front-end js handling to save api keys~~
+ONBOARDING
+    fix spinner not loading
+    add start migration button
+    redirect to react panel for SELECTING WHICH PRODUCTS TO MIGRATE
+
+
+BACKEND
 Create internal API calls to handle products
-create FE for handling products
+Create correct translations between products from Woo to TN.
+
+
+
+
 
 
 2521

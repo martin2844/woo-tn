@@ -12,13 +12,19 @@ const saveData = async (e) => {
     let api_client = document.getElementById("api_client").value;
     let api_secret = document.getElementById("api_secret").value;
     let user_id = document.getElementById("user_id").value;
+    let woo_url = document.getElementById("woo_url").value;
+    let email = document.getElementById("email").value;
+    console.log(user_id);
     let data = {
         user_id,
         api_client,
-        api_secret
+        api_secret,
+        woo_url,
+        email
     }
     let saveKeys = await axios.post("/api/tiendanube/setup", data);
-    if(saveKeys.data === "Success") {
+    console.log(saveKeys);
+    if(saveKeys.status === 200) {
         createAlert("Información guardada correctamente", "success");
         SUBMIT.innerHTML = originalSUBMIT;
         document.getElementById("test-btn").style.display = "flex";
@@ -31,14 +37,24 @@ const saveData = async (e) => {
     
 const test = async () => {
     TEST.innerHTML = spinner;
+    let woo_url = document.getElementById("woo_url").value;
     let user_id = document.getElementById("user_id").value;
+    let api_client = document.getElementById("api_client").value;
+    let api_secret = document.getElementById("api_secret").value;
     console.log("function to test api keys");
-    let test = await axios.get(`/api/entregar/panel/test/${user_id}`);
-    if(test.data){
-        createAlert("Prueba exitosa, ya podés usar EntregarWeb!", "success");
-    } else {
+    //MUST CHECK IF IT ENDS with / or not 
+    try {
+        let test = await axios.get(`${woo_url}/wp-json/wc/v3/products?consumer_key=${api_client}&consumer_secret=${api_secret}`);
+        if(test.data){
+            createAlert("Prueba exitosa, ya podemos comenzar con la migración", "success");
+        } else {
+            createAlert("Hubo un error, por favor contactate con nosotros");
+        }
+    } catch (error) {
+        console.log(error);
         createAlert("Hubo un error, por favor contactate con nosotros");
     }
+
     TEST.innerHTML = originalTEST;
     
 }

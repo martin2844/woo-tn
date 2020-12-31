@@ -75,14 +75,18 @@ router.get("/", async (req, res) => {
                     user_id: user_id, 
                     api_client: userExists.api_client || "",
                     api_secret: userExists.api_secret || "",
-                    store_url: userExists.store_url ||"",
+                    store_url: userExists.store_url || "",
+                    woo_url: userExists.woo_url || "",
+                    email: userExists.email || "",
                 });
             } else {
                 res.render("setup", { 
                     user_id: user_id,
                     store_url: storeData.data.url_with_protocol,
                     api_client: "",
-                    pi_secret: "",
+                    api_secret: "",
+                    woo_url: "",
+                    email: ""
                 });
             }
         } else {
