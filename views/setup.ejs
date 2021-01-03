@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="/public/register.css" as="style"/>
     <link rel="stylesheet" href="/public/register.css">
+ 
     <link href="/public/spinner.css" rel="stylesheet">
     <link
     rel="stylesheet"
@@ -34,9 +35,10 @@
             <input name="user_id" type="hidden" id="user_id" value="<%= user_id %>" />
             <div class="btn-container"><button id="submit-btn">Guardar</button><button type="button" onclick="test()" id="test-btn">Probar</button></div>
         </form>
-        <button id="start">Comenzar migración</button>
+        <button id="start" onclick="goTo()">Comenzar migración</button>
         <a class="back-link" href="<%= store_url %>/admin/apps/ ">Volver</a>
     </section>
+    
     <div class="alert animate__animated" id="alert"></div>
 <script src="/public/setup.js"></script>
 <script src="/public/axios.min.js"></script>

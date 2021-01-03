@@ -61,6 +61,9 @@ const test = async () => {
     
 }
 
+const goTo = () => {
+    window.location = "/migration"
+}
 
 
 //Helper function - Creates an alert on the bottom of the page.

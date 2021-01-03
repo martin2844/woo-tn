@@ -4,9 +4,19 @@ const connectDB = require("./config/db");
 const https = require('https');
 const fs = require('fs');
 const logger = require('./utils/logger')(module);
+const session = require("express-session");
 // const Bree = require('bree');
 //initialize express.
+const path = require('path');
 const app = express();
+
+app.use(session({
+    secret: "fortheloveofgod",
+    saveUninitialized: true,
+    resave: true,
+    cookie: { secure: false, maxAge: 1000*60*60*24*30 }
+  }));
+
 // const path = require("path")
 //Body Parser
 app.use(express.json({ extended: false, limit: '50mb'}));
@@ -38,10 +48,10 @@ app.get("/", (req, res) => {
 
 
 // React panel if needed:
-// app.use(express.static(__dirname + "/orderpanel/build"));
-// app.get("/panel", (req, res) => {
-//     res.sendFile(path.join(__dirname, "/orderpanel/build", "index.html"))
-// })
+app.use(express.static(__dirname + "/migration-panel/build"));
+app.get("/migration", (req, res) => {
+    res.sendFile(path.join(__dirname, "/migration-panel/build", "index.html"))
+})
 
 
 //Initialize DB
@@ -62,6 +72,9 @@ app.get("/scaffolding", (req, res) => {
 //ROUTES
 app.use("/api/tiendanube/auth", require('./routes/tiendanube/auth'));
 app.use("/api/tiendanube/setup", require("./routes/tiendanube/setup"));
+
+//Panel Route
+app.use("/api/woo/panel", require("./routes/woo/panel"));
 
 /*Webhook routes*/
 //Order Created

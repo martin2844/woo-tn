@@ -21,8 +21,10 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mocha": "^8.2.1",
     "mongoose": "^5.10.11",
+    "react-router-dom": "^5.2.0",
     "winston": "^3.3.3"
   }
 }

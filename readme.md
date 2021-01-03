@@ -34,3 +34,10 @@ Includes:
 * Mongoose for Mongo
 * Express Routing for AUTH
 * Env example file
+
+
+## History
+
+**3-1**  
+* Added sessions
+* Added route for getting user Data
