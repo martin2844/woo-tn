@@ -25,6 +25,11 @@ body {
   cursor: pointer;
 }
 
+.migration-btn.disabled {
+  background-color: #8c8e97;
+  color: black;
+}
+
 .title {
   text-align: center;
 }

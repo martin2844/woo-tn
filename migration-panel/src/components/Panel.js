@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Spinner from './Spinner';
 import Row from './Row';
-import ProgressBar from '@ramonak/react-progress-bar';
-
+import Modal from './Modal'
+import {Helmet} from 'react-helmet';
 import migrate from '../utils/migrate';
 
 const Panel = () => {
@@ -14,13 +14,25 @@ const Panel = () => {
        const [modal, setModal] = useState(false);
        const [user, setUser] = useState({});
        const [progress, setProgress] = useState(0);
+       const [done, setDone] = useState(false);
+
+        //Watch progress
+        useEffect(() => {
+            if(progress === 100) {
+                setDone(true);
+            }
+        }, [progress])
+
+        
+
        //Hoist product Data to state 
        useEffect(() => { 
         const getData = async () => {
             try {
-                // let userData = await axios.get('/api/woo/panel/getUserData');
-                //let productData = await axios.get(`${userData.data.woo_url}/wp-json/wc/v3/products?consumer_key=${userData.data.api_client}&consumer_secret=${userData.data.api_secret}&per_page=100`)
-                let productData = await axios.get("https://woo.martinchammah.dev/wp-json/wc/v3/products?consumer_key=ck_d7490757f3c4b6433e64f0c5c1a6c351a2114459&consumer_secret=cs_724c493b3979d4da008454ce4cde57ac15060cf0&per_page=100")
+                let userData = await axios.get('/api/woo/panel/getUserData');
+                setUser(userData.data); 
+                let productData = await axios.get(`${userData.data.woo_url}/wp-json/wc/v3/products?consumer_key=${userData.data.api_client}&consumer_secret=${userData.data.api_secret}&per_page=100`)
+               // let productData = await axios.get("https://woo.martinchammah.dev/wp-json/wc/v3/products?consumer_key=ck_d7490757f3c4b6433e64f0c5c1a6c351a2114459&consumer_secret=cs_724c493b3979d4da008454ce4cde57ac15060cf0&per_page=100")
                 let createChecked = productData.data.map((product) => {
                     return {
                         ...product,
@@ -80,18 +92,7 @@ const Panel = () => {
 
         //MISSING BTM, FOR EACH PRODUCT CHECKED START MIGRATION
         
-        const modalComponent = (
-                <div className="modal">
-                    <div className="modal-content">
-                        Modal Content
-                        <div className="progress-container"><ProgressBar bgcolor="#2f53f5" completed={progress} /></div>
-                       
-                    </div>
-                </div>
-            )
-        
-
-        console.log(modal);
+     
 
     if(loading) {
         return (
@@ -102,16 +103,21 @@ const Panel = () => {
     } else {
         return(
         <div className="all-container">
+            <Helmet>
+                <html lang="es" />
+                <title>Tus productos en woocommerce</title>
+                <meta name="description" content="Migrar woocommerce a tiendanube" />
+            </Helmet>
             <h1 className="title">Migración Woocommerce - Tiendanube</h1>
-            <p className="subtitle">Seleccioná los productos que queiras migrar de woocommerce a tiendanube</p>
+            <p className="subtitle">Seleccioná los productos que quieras migrar de woocommerce a tiendanube</p>
             <Row selectAll={selectAll}/>
             {renderProducts}
             {uploads.length ? <p className="center-text">{uploads.length} productos seleccionados</p> : <p className="center-text">Ningun producto seleccionado</p>}
-            <button className="migration-btn" onClick={() => {
-                migrate(uploads, user, setProgress)
+           {uploads.length ? <button className="migration-btn" onClick={() => {
+                migrate(uploads, user, progress, setProgress)
                 setModal(!modal)
-                }}>Comenzar Migración</button>
-            {modal ? modalComponent : null}
+                }}>Comenzar Migración</button> : <button className="migration-btn disabled" >Comenzar Migración</button>}
+            {modal ? <Modal progress={progress} setModal={setModal} done={done}/> : null}
         </div>
         )
   
