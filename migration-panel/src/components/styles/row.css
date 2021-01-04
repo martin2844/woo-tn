@@ -1,0 +1,9 @@
+
+.row {
+    display: grid;
+    grid-template-columns: 0.5fr .75fr .75fr .75fr 1fr .75fr .5fr;
+    border-bottom: 0.25px solid #ECECEC;
+    padding: .5rem .5rem .5rem 1.5rem;
+    font-size: 12px;
+    align-items: center;
+}
