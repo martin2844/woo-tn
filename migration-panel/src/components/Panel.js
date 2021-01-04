@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-
+import Spinner from './Spinner';
 import Row from './Row';
+import ProgressBar from '@ramonak/react-progress-bar';
 
+import migrate from '../utils/migrate';
 
 const Panel = () => {
        const [loading, isLoading] = useState(true);
        const [products, setProducts] = useState([]);
        const [uploads, setUploads] = useState([]);
        const [change, setChange] = useState(0);
+       const [modal, setModal] = useState(false);
+       const [user, setUser] = useState({});
+       const [progress, setProgress] = useState(0);
        //Hoist product Data to state 
        useEffect(() => { 
         const getData = async () => {
@@ -74,13 +79,44 @@ const Panel = () => {
         })
 
         //MISSING BTM, FOR EACH PRODUCT CHECKED START MIGRATION
-    
-    return (
-        <div>
-            {loading ? "SPINNER" : <><Row selectAll={selectAll}/>{renderProducts}</>}
-            {loading ? '' : <button onClick={() => console.log(uploads)}>TEST</button>}
+        
+        const modalComponent = (
+                <div className="modal">
+                    <div className="modal-content">
+                        Modal Content
+                        <div className="progress-container"><ProgressBar bgcolor="#2f53f5" completed={progress} /></div>
+                       
+                    </div>
+                </div>
+            )
+        
+
+        console.log(modal);
+
+    if(loading) {
+        return (
+            <div className="spinner-container">
+                <Spinner />
+            </div>
+        )
+    } else {
+        return(
+        <div className="all-container">
+            <h1 className="title">Migración Woocommerce - Tiendanube</h1>
+            <p className="subtitle">Seleccioná los productos que queiras migrar de woocommerce a tiendanube</p>
+            <Row selectAll={selectAll}/>
+            {renderProducts}
+            {uploads.length ? <p className="center-text">{uploads.length} productos seleccionados</p> : <p className="center-text">Ningun producto seleccionado</p>}
+            <button className="migration-btn" onClick={() => {
+                migrate(uploads, user, setProgress)
+                setModal(!modal)
+                }}>Comenzar Migración</button>
+            {modal ? modalComponent : null}
         </div>
-    )
+        )
+  
+    }
+   
 }
 
 export default Panel

@@ -7,6 +7,7 @@ ONBOARDING
     fix spinner not loading
     add start migration button
     redirect to react panel for SELECTING WHICH PRODUCTS TO MIGRATE
+    Add upload count to panel, so user can check how many items he's migrating.
 
 
 BACKEND
@@ -38,6 +39,11 @@ Includes:
 
 ## History
 
+**4-1**  
+* Added migration methods  
+* Added progress bar and promise solution for progress 
+
 **3-1**  
+* Added individual handling for each product
 * Added sessions
 * Added route for getting user Data

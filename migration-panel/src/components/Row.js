@@ -17,7 +17,7 @@ const Row = (props) => {
                         setChecked(!checked);
                     }}/>
                 <div>{id}</div>
-                <div><a href={permalink} target="__blank">{name}</a></div>
+                <div><a className="woo-link" href={permalink} target="__blank">{name}</a></div>
                 <div>{type}</div>
                 <div>{price}</div>
                 <div>{categories[0]?.name}</div>
