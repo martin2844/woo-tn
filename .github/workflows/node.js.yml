@@ -21,8 +21,8 @@ jobs:
 
     steps:
     - run: npm i
-    - run: cd migration-panel
-    - run: npm i
-    - run: npm run build
-    - run: cd ..
-    - run: pm2 restart woo-tn
+    #- run: cd migration-panel
+    #- run: npm i
+    #- run: npm run build
+    #- run: cd ..
+    #- run: pm2 restart woo-tn
