@@ -46,6 +46,14 @@ app.get("/", (req, res) => {
  
 })
 
+app.get("/contact", (req, res) => {
+    
+    res.render('contact', {
+    });
+ 
+})
+
+
 
 // React panel if needed:
 app.use(express.static(__dirname + "/migration-panel/build"));
@@ -57,21 +65,22 @@ app.get("/migration", (req, res) => {
 //Initialize DB
 connectDB();
 
-app.get("/scaffolding", (req, res) => {
-    res.render('setup', {
-        woo_url: "https://woo.martinchammah.dev",
-        email: "martin2844@gmail.com",
-        store_url: "https://tester25.mitiendanube.com",
-        api_client: "ck_d7490757f3c4b6433e64f0c5c1a6c351a2114459",
-        api_secret: "cs_724c493b3979d4da008454ce4cde57ac15060cf0",
-        user_id: "1462572"
-    })
-})
+// app.get("/scaffolding", (req, res) => {
+//     res.render('setup', {
+//         woo_url: "https://woo.martinchammah.dev",
+//         email: "martin2844@gmail.com",
+//         store_url: "https://tester25.mitiendanube.com",
+//         api_client: "ck_d7490757f3c4b6433e64f0c5c1a6c351a2114459",
+//         api_secret: "cs_724c493b3979d4da008454ce4cde57ac15060cf0",
+//         user_id: "1462572"
+//     })
+// })
 
 
 //ROUTES
 app.use("/api/tiendanube/auth", require('./routes/tiendanube/auth'));
 app.use("/api/tiendanube/setup", require("./routes/tiendanube/setup"));
+app.use("/api/tiendanube/contact", require("./routes/tiendanube/contact"));
 
 //Panel Route
 app.use("/api/woo/panel", require("./routes/woo/panel"));

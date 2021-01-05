@@ -113,3 +113,40 @@ form button {
 .alert.success {
     background-color: #00E662;
 }
+
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 8rem 0;
+    align-items: center;
+}
+
+.contact-title {
+    width: 480px;
+}
+
+.contact-main textarea {
+    min-height: 100px;
+}
+
+.spinner {
+    top: calc(50% - 1rem);
+    left: calc(50% - 1rem);
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 0.15rem solid #fff;
+    border-bottom: 0.15rem solid rgba(0,0,0,0);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+  }
+  
+  .spinner--hidden {
+    display: none;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }

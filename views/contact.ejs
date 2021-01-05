@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/public/register.css" as="style"/>
+    <link rel="stylesheet" href="/public/register.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>Contacto - Woo-Tn</title>
+</head>
+<body>
+    <section class="contact-main">
+        <div class="contact-title">
+            <h1>Contacto</h1>
+            <p>Si tenés alguna sugerencia, queja o problema contactacte con nosotros a través de este formulario</p>
+        </div>
+    <form onsubmit="contact(event)" >
+        <label>Email que usaste para instalar la app</label>
+        <input type="email" placeholder="email" name="email" id="email" />
+        <label>Nombre</label>
+        <input type="text" placeholder="nombre" name="name" id="name"/>
+        <label>Asunto</label>
+        <input type="text" placeholder="asunto" name="title" id="title"/>
+        <label>Mensaje</label>
+        <textarea name="msg" id="msg"></textarea>
+        <button class="submit-btn" id="submit-btn">Enviar</button>
+        
+    </form>
+
+    </section>
+    <br>
+    <br>
+    <div class="alert animate__animated" id="alert"></div>
+    <br>
+    <br>
+    <br>
+    
+    <script src="/public/axios.min.js"></script>
+    <script src="/public/mail.js"></script>
+</body>
+</html>
