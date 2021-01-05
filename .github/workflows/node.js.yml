@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i
     - run: cd migration-panel
-    - run: npm i
-    - run: npm run build
+    - run: yarn install
+    - run: yarn build
     - run: cd ..
     - run: pm2 restart woo-tn
