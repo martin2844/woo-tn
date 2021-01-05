@@ -14,8 +14,8 @@ const migrate = async (items, user, progress, setProgress) => {
                 console.log(item);
                 let TiendaNubeItem = tnItem(item);
                 console.log(TiendaNubeItem);
-                //promises.push(axios.post(`/api/woo/panel/migrate?user_id=${user.user_id}`, TiendaNubeItem))
-                promises.push(axios.get("/api/woo/panel/delay"))
+                promises.push(axios.post(`/api/woo/panel/migrate?user_id=${user.user_id}`, TiendaNubeItem))
+                //promises.push(axios.get("/api/woo/panel/delay"))
         })
 
         promises.forEach(async (p, i) => {
